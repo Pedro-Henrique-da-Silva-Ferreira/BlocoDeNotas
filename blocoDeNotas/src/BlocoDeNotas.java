@@ -7,13 +7,13 @@ public class BlocoDeNotas  {
 
     public Anotacao adicionar(String texto){
 
-        Anotacao anotacao = new Anotacao(texto, anotacoes.size());
+        Anotacao anotacao = new Anotacao(texto, anotacoes.size() + 1);
         anotacoes.add(anotacao);
         return anotacao;
     }
 
     public Anotacao remover(int id){
-        Anotacao anotacao = anotacoes.get(id+1);
+        Anotacao anotacao = anotacoes.get(id);
         anotacao.remover(id);
         return anotacao;
 
@@ -23,26 +23,28 @@ public class BlocoDeNotas  {
         Anotacao anotacao = anotacoes.get(id+1);
         anotacao.setTexto(texto);
         return anotacao;
-    
+
     }
 
     public Anotacao recuperar(int id){
-    return anotacoes.get(id);
+        return anotacoes.get(id);
 
     }
 
     public void pesquisa(String padrao){
-       for(Anotacao a : anotacoes){
-           if (a.toString().contains(padrao)) {
-               System.out.println(a.toString());
-           }
-       }
+        for(Anotacao a : anotacoes){
+            if (a.toString().contains(padrao)) {
+                System.out.println(a.toString());
+            }
+        }
     }
 
-    public void mostrar (){
+    public String mostrar (){
+        String s = "";
         for (Anotacao a: anotacoes) {
-            System.out.println(a.toString());
+            s += a.toString();
         }
+        return s;
     }
 
 
