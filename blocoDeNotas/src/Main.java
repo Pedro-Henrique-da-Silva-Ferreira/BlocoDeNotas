@@ -12,10 +12,9 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Fachada fachada = new Fachada();
-        BlocoDeNotas bloco = new BlocoDeNotas();
 
         String menu = "Menu\n1.Adicionar notas.\n2.Remover notas." +
-                "\n3.Editar notas.\n4.Recuérar notas.\n5.Pesquisar notas." +
+                "\n3.Editar notas.\n4.Recuperar notas.\n5.Pesquisar notas." +
                 "\n6.Sair.";
 
         System.out.println(menu);
@@ -47,6 +46,9 @@ public class Main {
                     fachada.editar(procEditar,editando);
                     break;
                 case RECUPERAR:
+                    System.out.println("Digite a anotação que deseja recuperar.");
+                    int recuperando = sc.nextInt();
+                    fachada.recuperar(recuperando);
 
                     break;
                 case PESQUISAR:
@@ -56,11 +58,12 @@ public class Main {
                     break;
 
                 case MOSTRAR:
-                bloco.mostrar();
+                    System.out.println(fachada.mostrar());
+
             }
             System.out.println(menu);
             escolha = sc.nextInt();
-             }
+        }
 
 
     }
