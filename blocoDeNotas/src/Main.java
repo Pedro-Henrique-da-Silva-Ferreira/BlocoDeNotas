@@ -15,7 +15,7 @@ public class Main {
 
         String menu = "Menu\n1.Adicionar notas.\n2.Remover notas." +
                 "\n3.Editar notas.\n4.Recuperar notas.\n5.Pesquisar notas." +
-                "\n6.Sair.";
+                "\n6.Mostrar.\n7.Sair.";
 
         System.out.println(menu);
         int escolha = sc.nextInt();
@@ -25,7 +25,8 @@ public class Main {
 
                 case ADICIONAR:
                     System.out.println("Adicionar:");
-                    String escrita = sc.next();
+                    sc.nextLine();
+                    String escrita = sc.nextLine();
                     fachada.adicionar(escrita);
                     break;
 
@@ -41,6 +42,7 @@ public class Main {
                     int procEditar = sc.nextInt();
 
                     System.out.println("Edite");
+                    sc.nextLine();
                     String editando = sc.nextLine();
 
                     fachada.editar(procEditar,editando);
@@ -53,8 +55,10 @@ public class Main {
                     break;
                 case PESQUISAR:
                     System.out.println("Procure.");
+                    sc.nextLine();
                     String procurando = sc.nextLine();
                     fachada.pesquisa(procurando);
+                    System.out.println(fachada.pesquisa(procurando));
                     break;
 
                 case MOSTRAR:
