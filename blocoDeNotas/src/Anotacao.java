@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Anotacao{
 
@@ -49,6 +50,19 @@ public class Anotacao{
     public String toString() {
         return "texto: " + "|" +getTexto() + "|" +" data " + getData() + " Id:" + getId()
                 + " " +  isRemovido() + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Anotacao anotacao = (Anotacao) o;
+        return id == anotacao.id && removido == anotacao.removido && Objects.equals(texto, anotacao.texto) && Objects.equals(data, anotacao.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(texto, data, id, removido);
     }
 }
 
